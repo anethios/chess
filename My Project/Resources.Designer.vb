@@ -49,7 +49,7 @@ Namespace My.Resources
         '''  Overrides the current thread's CurrentUICulture property for all
         '''  resource lookups using this strongly typed resource class.
         '''</summary>
-        <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)> _
+        <Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>
         Friend Property Culture() As Global.System.Globalization.CultureInfo
             Get
                 Return resourceCulture
@@ -57,6 +57,13 @@ Namespace My.Resources
             Set(ByVal value As Global.System.Globalization.CultureInfo)
                 resourceCulture = value
             End Set
+        End Property
+
+        Friend ReadOnly Property bBishop() As Image
+            Get
+                Dim obj As Object = ResourceManager.GetObject("blackBishop", resourceCulture)
+                Return CType(obj, Image)
+            End Get
         End Property
     End Module
 End Namespace
