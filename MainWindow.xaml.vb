@@ -1,53 +1,48 @@
 ﻿Class MainWindow
 
-    Dim blackTurn As Boolean = False
-    Dim turnNumber As Integer = 0
+    Dim turnSequence As Integer
+    Dim turnDisp As TextBox = turnDisplay
+    Dim gameStarted As Integer = 0
 
 
+    '------------------------------------------------------------------------
+    '                           Game Functions
+    '------------------------------------------------------------------------
 
-    Public Function getpiecesw()
-        Dim wPieces As Image() = {wRook, wKnight, wBishop, wKing, wQueen, wBishop2, wKnight2, wRook2, wp1, wp2, wp3, wp4, wp5, wp6, wp7, wp8}
-        Return wPieces
+    Public Function getButtonsW()
+        Dim wButtons As Button() = {wR, wKn, wB, wK, wQ, wB2, wKn2, wR2, wp1B, wp2B, wp3B, wp4B, wp5B, wp6B, wp7B, wp8B}
+        Return wButtons
     End Function
 
-    Public Function getpiecesb()
-        Dim bPieces As Image() = {bRook, bKnight, bBishop, bQueen, bKing, bBishop2, bKnight2, bRook2, bp1, bp2, bp3, bp4, bp5, bp6, bp7, bp8}
-        Return bPieces
+    Public Function getButtonsB()
+        Dim bButtons As Button() = {bR, bKn, bB, bQ, bK, bB2, bKn2, bR2, bp1B, bp2B, bp3B, bp4B, bp5B, bp6B, bp7B, bp8B}
+        Return bButtons
     End Function
 
-    Public Function whosTurn()
-        Return blackTurn
+    Public Function getTurnDisp()
+        Return turnDisplay
     End Function
 
     Public Function getTurn()
-        Return turnNumber
+        Return turnSequence
     End Function
 
-    Public Sub setTurn(ByVal Number As Integer)
-        turnNumber = Number
+    Public Sub setTurn(ByVal number As Integer)
+        turnSequence = number
     End Sub
 
-    Public Sub turn()
-        If turnNumber = 0 Then
-            move1()
-        ElseIf turnNumber = 1 Then
-            move2()
-        ElseIf turnNumber = 2 Then
-            move3()
-        ElseIf turnNumber = 3 Then
-            move4()
-        ElseIf turnNumber = 4 Then
-            move5()
 
-        End If
-        turnNumber += 1
-    End Sub
+    '------------------------------------------------------------------------
+    '                            Game Initializer
+    '------------------------------------------------------------------------
 
     Public Sub newGame()
-        turnNumber = 0
-        Dim wPieces = getpiecesw()
-        Dim bPieces = getpiecesb()
 
+        setTurn(0)
+        Dim wPieces = getButtonsW()
+        Dim bPieces = getButtonsB()
+
+        Dim name = Button.NameProperty
 
         Dim x As Integer
         Dim y As Integer
@@ -55,8 +50,17 @@
         Dim wRow As Integer = 7
         Dim bRow As Integer = 0
 
-        chessGrid.Children.Add(bPieces(10))
+        'Add missing pieces back to the board
+        For x = 0 To 15
+            If chessGrid.Children.Contains(bPieces(x)) = False Then
+                chessGrid.Children.Add(bPieces(x))
+            End If
+            If chessGrid.Children.Contains(wPieces(x)) = False Then
+                chessGrid.Children.Add(wPieces(x))
+            End If
+        Next
 
+        'Set each piece to it's corresponding starting position
         For x = 0 To 1
             For y = 0 To 7
                 Grid.SetRow(wPieces(z), wRow)
@@ -68,41 +72,72 @@
             wRow -= 1
             bRow += 1
         Next
-
+        simulateTurn()
+        '---------------------------------------------------------------------
     End Sub
 
-    Public Sub move1()
-        Dim wPieces = getpiecesw()
-        Grid.SetRow(wPieces(9), 5)
+    '------------------------------------------------------------------------
+    '                              Game Logic
+    '------------------------------------------------------------------------
+    Public Sub simulateTurn()
+        'Even though these variables are named the same as their globals,
+        'the get functions are absolutely necessary
+        Dim turnSequence = getTurn()
+        Dim turnD = getTurnDisp()
 
+        If turnSequence Mod 2 = 0 Then
+            turnD.Text = "Turn: White"
+        ElseIf turnSequence Mod 2 = 1 Then
+            turnD.Text = "Turn: Black"
+        End If
+
+        turnSequence += 1
+        setTurn(turnSequence)
     End Sub
 
-    Public Sub move2()
-        Dim bPieces = getpiecesb()
-        Grid.SetRow(bPieces(10), 3)
+
+
+
+    '------------------------------------------------------------------------
+
+
+    '------------------------------------------------------------------------
+    '                              Piece Logic
+    '------------------------------------------------------------------------
+
+    Public Sub mvPiece(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs)
+        Dim wPieces = getButtonsW()
+        Dim bPieces = getButtonsB()
+
+        'If the button that was clicked is equal to the first button of the white piece set then do...
+        If (Button.ReferenceEquals(sender, wPieces(0)) = True) Then
+            Grid.SetRow(wPieces(0), 4)
+        End If
     End Sub
 
-    Public Sub move3()
-        Dim wPieces = getpiecesw()
-        Grid.SetRow(wPieces(2), 5)
-        Grid.SetColumn(wPieces(2), 0)
-    End Sub
+    Public Sub movePiece(ByVal teamCode As Integer, ByVal pieceNumber As Integer, ByVal destRow As Integer, Optional ByVal destCol As Integer = 20)
+        Dim wPieces = getButtonsW()
+        Dim bPieces = getButtonsB()
 
-    Public Sub move4()
-        Dim bPieces = getpiecesb()
-        Grid.SetRow(bPieces(13), 3)
-    End Sub
 
-    Public Sub move5()
-        Dim wPieces = getpiecesw()
-        Dim bPieces = getpiecesb()
-        Grid.SetRow(wPieces(2), 3)
-        Grid.SetColumn(wPieces(2), 2)
-        removePiece(10, bPieces)
+        If teamCode = 0 Then
+            Grid.SetRow(wPieces(pieceNumber), destRow)
+            If destCol <> 20 Then
+                Grid.SetColumn(wPieces(pieceNumber), destCol)
+            End If
+        ElseIf teamCode = 1 Then
+            Grid.SetRow(bPieces(pieceNumber), destRow)
+            If destCol <> 20 Then
+                Grid.SetColumn(bPieces(pieceNumber), destCol)
+            End If
+        End If
+
     End Sub
 
     Public Sub removePiece(ByVal piece As Integer, ByRef PieceSet As Image())
         chessGrid.Children.Remove(PieceSet(piece))
     End Sub
+
+    '------------------------------------------------------------------------
 
 End Class

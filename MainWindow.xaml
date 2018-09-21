@@ -29,44 +29,109 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Image x:Name="bRook" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="38" Source="Images/blackRook.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="bKnight" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/blackKnight.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="bBishop" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="38" Source="Images/blackBishop.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="bQueen" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/blackQueen.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="bKing" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="38" Source="Images/blackKing.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="bBishop2" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/blackBishop.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="bKnight2" Grid.Row="0" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="38" Source="Images/blackKnight.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="bRook2" Grid.Row="0" Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/blackRook.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
 
-            <Image x:Name="bp1" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="bp2" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="bp3" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="bp4" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="bp5" Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="bp6" Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="bp7" Grid.Row="1" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="bp8" Grid.Row="1" Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-
-            <Image x:Name="wp1" Grid.Row="6" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="wp2" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="wp3" Grid.Row="6" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="wp4" Grid.Row="6" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="wp5" Grid.Row="6" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="wp6" Grid.Row="6" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="wp7" Grid.Row="6" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="wp8" Grid.Row="6" Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-
-            <Image x:Name="wRook" Grid.Row="7" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="38" Source="Images/whiteRook.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="wKnight" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/whiteKnight.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="wBishop" Grid.Row="7" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="38" Source="Images/whiteBishop.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="wKing" Grid.Row="7" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/whiteKing.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="wQueen" Grid.Row="7" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center" Width="38" Source="Images/whiteQueen.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="wBishop2" Grid.Row="7" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/whiteBishop.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="wKnight2" Grid.Row="7" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center" Width="38" Source="Images/whiteKnight.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-            <Image x:Name="wRook2" Grid.Row="7" Grid.Column="7" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="38" Source="Images/whiteRook.png" IsManipulationEnabled="True" OverridesDefaultStyle="True" Stretch="Fill"/>
-
+            <Button x:Name="bR" Click="mvPiece" Grid.Row="0" Grid.Column="0" Background="White" BorderThickness="0">
+                <Image x:Name="bRook" Width="38" Source="Images/blackRook.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="bKn" Click="mvPiece" Grid.Row="0" Grid.Column="1" Background="White" BorderThickness="0">
+                <Image x:Name="bKnight" Width="38" Source="Images/blackKnight.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="bB" Click="mvPiece" Grid.Row="0" Grid.Column="2" Background="White" BorderThickness="0">
+                <Image x:Name="bBishop" Width="38" Source="Images/blackBishop.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="bQ" Click="mvPiece" Grid.Row="0" Grid.Column="3" Background="White" BorderThickness="0">
+                <Image x:Name="bQueen" Width="38" Source="Images/blackQueen.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="bK" Click="mvPiece" Grid.Row="0" Grid.Column="4" Background="White" BorderThickness="0">
+                <Image x:Name="bKing" Width="38" Source="Images/blackKing.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="bB2" Click="mvPiece" Grid.Row="0" Grid.Column="5" Background="White" BorderThickness="0">
+                <Image x:Name="bBishop2" Width="38" Source="Images/blackBishop.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="bKn2" Click="mvPiece" Grid.Row="0" Grid.Column="6" Background="White" BorderThickness="0">
+                <Image x:Name="bKnight2" Width="38" Source="Images/blackKnight.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="bR2" Click="mvPiece" Grid.Row="0" Grid.Column="7" Background="White" BorderThickness="0">
+                <Image x:Name="bRook2" Width="38" Source="Images/blackRook.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            
+            <Button x:Name="bp1B" Click="mvPiece" Grid.Row="1" Grid.Column="0" Background="White" BorderThickness="0">
+                <Image x:Name="bp1" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="bp2B" Click="mvPiece" Grid.Row="1" Grid.Column="1" Background="White" BorderThickness="0">
+                <Image x:Name="bp2" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="bp3B" Click="mvPiece" Grid.Row="1" Grid.Column="2" Background="White" BorderThickness="0">
+                <Image x:Name="bp3" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="bp4B" Click="mvPiece" Grid.Row="1" Grid.Column="3" Background="White" BorderThickness="0">
+                <Image x:Name="bp4" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="bp5B" Click="mvPiece" Grid.Row="1" Grid.Column="4" Background="White" BorderThickness="0">
+                <Image x:Name="bp5" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="bp6B" Click="mvPiece" Grid.Row="1" Grid.Column="5" Background="White" BorderThickness="0">
+                <Image x:Name="bp6" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="bp7B" Click="mvPiece" Grid.Row="1" Grid.Column="6" Background="White" BorderThickness="0">
+                <Image x:Name="bp7" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="bp8B" Click="mvPiece" Grid.Row="1" Grid.Column="7" Background="White" BorderThickness="0">
+                <Image x:Name="bp8" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            
+            
+            <Button x:Name="wp1B" Click="mvPiece" Grid.Row="6" Grid.Column="0" Background="White" BorderThickness="0">
+                <Image x:Name="wp1" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="wp2B" Click="mvPiece" Grid.Row="6" Grid.Column="1" Background="White" BorderThickness="0">
+                <Image x:Name="wp2" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="wp3B" Click="mvPiece" Grid.Row="6" Grid.Column="2" Background="White" BorderThickness="0">
+                <Image x:Name="wp3" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="wp4B" Click="mvPiece" Grid.Row="6" Grid.Column="3" Background="White" BorderThickness="0">
+                <Image x:Name="wp4" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="wp5B" Click="mvPiece" Grid.Row="6" Grid.Column="4" Background="White" BorderThickness="0">
+                <Image x:Name="wp5" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="wp6B" Click="mvPiece" Grid.Row="6" Grid.Column="5" Background="White" BorderThickness="0">
+                <Image x:Name="wp6" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="wp7B" Click="mvPiece" Grid.Row="6" Grid.Column="6" Background="White" BorderThickness="0">
+                <Image x:Name="wp7" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="wp8B" Click="mvPiece" Grid.Row="6" Grid.Column="7" Background="White" BorderThickness="0">
+                <Image x:Name="wp8" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            
+            <Button x:Name="wR" Click="mvPiece" Grid.Row="7" Grid.Column="0" Background="White" BorderThickness="0">
+                <Image x:Name="wRook" Width="38" Source="Images/whiteRook.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="wKn" Click="mvPiece" Grid.Row="7" Grid.Column="1" Background="White" BorderThickness="0">
+                <Image x:Name="wKnight" Width="38" Source="Images/whiteKnight.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="wB" Click="mvPiece" Grid.Row="7" Grid.Column="2" Background="White" BorderThickness="0">
+                <Image x:Name="wBishop" Width="38" Source="Images/whiteBishop.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="wK" Click="mvPiece" Grid.Row="7" Grid.Column="3" Background="White" BorderThickness="0">
+                <Image x:Name="wKing" Width="38" Source="Images/whiteKing.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="wQ" Click="mvPiece" Grid.Row="7" Grid.Column="4" Background="White" BorderThickness="0">
+                <Image x:Name="wQueen" Width="38" Source="Images/whiteQueen.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="wB2" Click="mvPiece" Grid.Row="7" Grid.Column="5" Background="White" BorderThickness="0">
+                <Image x:Name="wBishop2" Width="38" Source="Images/whiteBishop.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="wKn2" Click="mvPiece" Grid.Row="7" Grid.Column="6" Background="White" BorderThickness="0">
+                <Image x:Name="wKnight2" Width="38" Source="Images/whiteKnight.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
+            <Button x:Name="wR2" Click="mvPiece" Grid.Row="7" Grid.Column="7" Background="White" BorderThickness="0">
+                <Image x:Name="wRook2" Width="38" Source="Images/whiteRook.png" IsManipulationEnabled="True" Stretch="Fill"/>
+            </Button>
         </Grid>
         <Button Click="newGame" Content="New Game" HorizontalAlignment="Left" Height="25" Margin="416,179,0,0" VerticalAlignment="Top" Width="67"/>
-        <Button Click="turn" Content="Next" HorizontalAlignment="Left" Margin="416,236,0,0" VerticalAlignment="Top" Width="67" Height="21"/>
+        <TextBox x:Name="turnDisplay" HorizontalAlignment="Left" Height="26" Margin="389,10,0,0" TextWrapping="Wrap" Text="Turn: White" VerticalAlignment="Top" Width="94"/>
     </Grid>
 </Window>
