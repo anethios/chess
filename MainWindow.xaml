@@ -145,11 +145,24 @@
             <Button x:Name="empty31" Grid.Row="5" Grid.Column="7" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
             </Button>
 
-            <Button x:Name="blank0" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"/>
-            <Button x:Name="blank1" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"/>
-            <Button x:Name="blank2" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"/>
-            <Button x:Name="blank3" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"/>
-            <Button x:Name="blank4" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"/>
+            <Button x:Name="blank0" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank1" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank2" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank3" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank4" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank5" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank6" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank7" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank8" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank9" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank10" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank11" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank12" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank13" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank14" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank15" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank16" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank17" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
 
             <Button x:Name="wp1B" Click="MvPiece" Grid.Row="6" Grid.Column="0" Background="White" BorderThickness="0" >
                 <Image x:Name="wp1" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
