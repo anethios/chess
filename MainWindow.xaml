@@ -30,108 +30,194 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Button x:Name="bR" Click="mvPiece" Grid.Row="0" Grid.Column="0" Background="White" BorderThickness="0">
+            <Button x:Name="bR" Click="MvPiece" Grid.Row="0" Grid.Column="0" Background="White" BorderThickness="0">
                 <Image x:Name="bRook" Width="38" Source="Images/blackRook.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bKn" Click="mvPiece" Grid.Row="0" Grid.Column="1" Background="White" BorderThickness="0">
+            <Button x:Name="bKn" Click="MvPiece" Grid.Row="0" Grid.Column="1" Background="White" BorderThickness="0">
                 <Image x:Name="bKnight" Width="38" Source="Images/blackKnight.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bB" Click="mvPiece" Grid.Row="0" Grid.Column="2" Background="White" BorderThickness="0">
+            <Button x:Name="bB" Click="MvPiece" Grid.Row="0" Grid.Column="2" Background="White" BorderThickness="0">
                 <Image x:Name="bBishop" Width="38" Source="Images/blackBishop.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bQ" Click="mvPiece" Grid.Row="0" Grid.Column="3" Background="White" BorderThickness="0">
+            <Button x:Name="bQ" Click="MvPiece" Grid.Row="0" Grid.Column="3" Background="White" BorderThickness="0">
                 <Image x:Name="bQueen" Width="38" Source="Images/blackQueen.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bK" Click="mvPiece" Grid.Row="0" Grid.Column="4" Background="White" BorderThickness="0">
+            <Button x:Name="bK" Click="MvPiece" Grid.Row="0" Grid.Column="4" Background="White" BorderThickness="0">
                 <Image x:Name="bKing" Width="38" Source="Images/blackKing.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bB2" Click="mvPiece" Grid.Row="0" Grid.Column="5" Background="White" BorderThickness="0">
+            <Button x:Name="bB2" Click="MvPiece" Grid.Row="0" Grid.Column="5" Background="White" BorderThickness="0">
                 <Image x:Name="bBishop2" Width="38" Source="Images/blackBishop.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bKn2" Click="mvPiece" Grid.Row="0" Grid.Column="6" Background="White" BorderThickness="0">
+            <Button x:Name="bKn2" Click="MvPiece" Grid.Row="0" Grid.Column="6" Background="White" BorderThickness="0">
                 <Image x:Name="bKnight2" Width="38" Source="Images/blackKnight.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bR2" Click="mvPiece" Grid.Row="0" Grid.Column="7" Background="White" BorderThickness="0">
+            <Button x:Name="bR2" Click="MvPiece" Grid.Row="0" Grid.Column="7" Background="White" BorderThickness="0">
                 <Image x:Name="bRook2" Width="38" Source="Images/blackRook.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            
-            <Button x:Name="bp1B" Click="mvPiece" Grid.Row="1" Grid.Column="0" Background="White" BorderThickness="0">
+
+            <Button x:Name="bp1B" Click="MvPiece" Grid.Row="1" Grid.Column="0" Background="White" BorderThickness="0">
                 <Image x:Name="bp1" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bp2B" Click="mvPiece" Grid.Row="1" Grid.Column="1" Background="White" BorderThickness="0">
+            <Button x:Name="bp2B" Click="MvPiece" Grid.Row="1" Grid.Column="1" Background="White" BorderThickness="0">
                 <Image x:Name="bp2" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bp3B" Click="mvPiece" Grid.Row="1" Grid.Column="2" Background="White" BorderThickness="0">
+            <Button x:Name="bp3B" Click="MvPiece" Grid.Row="1" Grid.Column="2" Background="White" BorderThickness="0">
                 <Image x:Name="bp3" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bp4B" Click="mvPiece" Grid.Row="1" Grid.Column="3" Background="White" BorderThickness="0">
+            <Button x:Name="bp4B" Click="MvPiece" Grid.Row="1" Grid.Column="3" Background="White" BorderThickness="0">
                 <Image x:Name="bp4" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bp5B" Click="mvPiece" Grid.Row="1" Grid.Column="4" Background="White" BorderThickness="0">
+            <Button x:Name="bp5B" Click="MvPiece" Grid.Row="1" Grid.Column="4" Background="White" BorderThickness="0">
                 <Image x:Name="bp5" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bp6B" Click="mvPiece" Grid.Row="1" Grid.Column="5" Background="White" BorderThickness="0">
+            <Button x:Name="bp6B" Click="MvPiece" Grid.Row="1" Grid.Column="5" Background="White" BorderThickness="0">
                 <Image x:Name="bp6" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bp7B" Click="mvPiece" Grid.Row="1" Grid.Column="6" Background="White" BorderThickness="0">
+            <Button x:Name="bp7B" Click="MvPiece" Grid.Row="1" Grid.Column="6" Background="White" BorderThickness="0">
                 <Image x:Name="bp7" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bp8B" Click="mvPiece" Grid.Row="1" Grid.Column="7" Background="White" BorderThickness="0">
+            <Button x:Name="bp8B" Click="MvPiece" Grid.Row="1" Grid.Column="7" Background="White" BorderThickness="0">
                 <Image x:Name="bp8" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            
-            
-            <Button x:Name="wp1B" Click="mvPiece" Grid.Row="6" Grid.Column="0" Background="White" BorderThickness="0">
+
+            <Button x:Name="empty0" Click="Move" Grid.Row="2" Grid.Column="0" Background="#7F99ccff"  BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty1" Click="Move" Grid.Row="2" Grid.Column="1" Background="#7F99ccff" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty2" Click="Move" Grid.Row="2" Grid.Column="2" Background="#7F99ccff" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty3" Click="Move" Grid.Row="2" Grid.Column="3" Background="#7F99ccff" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty4" Click="Move" Grid.Row="2" Grid.Column="4" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty5" Click="Move" Grid.Row="2" Grid.Column="5" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty6" Click="Move" Grid.Row="2" Grid.Column="6" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty7" Click="Move" Grid.Row="2" Grid.Column="7" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty8" Click="Move" Grid.Row="3" Grid.Column="0" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty9" Click="Move" Grid.Row="3" Grid.Column="1" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty10" Click="Move" Grid.Row="3" Grid.Column="2" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty11" Click="Move" Grid.Row="3" Grid.Column="3" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty12" Click="Move" Grid.Row="3" Grid.Column="4" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty13" Click="Move" Grid.Row="3" Grid.Column="5" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty14" Click="Move" Grid.Row="3" Grid.Column="6" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty15" Click="Move" Grid.Row="3" Grid.Column="7" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty16" Click="Move" Grid.Row="4" Grid.Column="0" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty17" Click="Move" Grid.Row="4" Grid.Column="1" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty18" Grid.Row="4" Grid.Column="2" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty19" Grid.Row="4" Grid.Column="3" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty20" Grid.Row="4" Grid.Column="4" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty21" Grid.Row="4" Grid.Column="5" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty22" Grid.Row="4" Grid.Column="6" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty23" Grid.Row="4" Grid.Column="7" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty24" Grid.Row="5" Grid.Column="0" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty25" Grid.Row="5" Grid.Column="1" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty26" Grid.Row="5" Grid.Column="2" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty27" Grid.Row="5" Grid.Column="3" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty28" Grid.Row="5" Grid.Column="4" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty29" Grid.Row="5" Grid.Column="5" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty30" Grid.Row="5" Grid.Column="6" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+            <Button x:Name="empty31" Grid.Row="5" Grid.Column="7" Background="LightSteelBlue" BorderThickness="0" Visibility="Collapsed">
+            </Button>
+
+            <Button x:Name="blank0" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank1" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank2" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank3" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank4" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank5" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank6" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank7" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank8" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank9" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank10" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank11" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank12" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank13" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank14" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank15" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank16" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+            <Button x:Name="blank17" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
+
+            <Button x:Name="wp1B" Click="MvPiece" Grid.Row="6" Grid.Column="0" Background="White" BorderThickness="0" >
                 <Image x:Name="wp1" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wp2B" Click="mvPiece" Grid.Row="6" Grid.Column="1" Background="White" BorderThickness="0">
+            <Button x:Name="wp2B" Click="MvPiece" Grid.Row="6" Grid.Column="1" Background="White" BorderThickness="0">
                 <Image x:Name="wp2" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wp3B" Click="mvPiece" Grid.Row="6" Grid.Column="2" Background="White" BorderThickness="0">
+            <Button x:Name="wp3B" Click="MvPiece" Grid.Row="6" Grid.Column="2" Background="White" BorderThickness="0">
                 <Image x:Name="wp3" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wp4B" Click="mvPiece" Grid.Row="6" Grid.Column="3" Background="White" BorderThickness="0">
+            <Button x:Name="wp4B" Click="MvPiece" Grid.Row="6" Grid.Column="3" Background="White" BorderThickness="0">
                 <Image x:Name="wp4" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wp5B" Click="mvPiece" Grid.Row="6" Grid.Column="4" Background="White" BorderThickness="0">
+            <Button x:Name="wp5B" Click="MvPiece" Grid.Row="6" Grid.Column="4" Background="White" BorderThickness="0">
                 <Image x:Name="wp5" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wp6B" Click="mvPiece" Grid.Row="6" Grid.Column="5" Background="White" BorderThickness="0">
+            <Button x:Name="wp6B" Click="MvPiece" Grid.Row="6" Grid.Column="5" Background="White" BorderThickness="0">
                 <Image x:Name="wp6" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wp7B" Click="mvPiece" Grid.Row="6" Grid.Column="6" Background="White" BorderThickness="0">
+            <Button x:Name="wp7B" Click="MvPiece" Grid.Row="6" Grid.Column="6" Background="White" BorderThickness="0">
                 <Image x:Name="wp7" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wp8B" Click="mvPiece" Grid.Row="6" Grid.Column="7" Background="White" BorderThickness="0">
+            <Button x:Name="wp8B" Click="MvPiece" Grid.Row="6" Grid.Column="7" Background="White" BorderThickness="0">
                 <Image x:Name="wp8" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            
-            <Button x:Name="wR" Click="mvPiece" Grid.Row="7" Grid.Column="0" Background="White" BorderThickness="0">
+
+            <Button x:Name="wR" Click="MvPiece" Grid.Row="7" Grid.Column="0" Background="White" BorderThickness="0">
                 <Image x:Name="wRook" Width="38" Source="Images/whiteRook.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wKn" Click="mvPiece" Grid.Row="7" Grid.Column="1" Background="White" BorderThickness="0">
+            <Button x:Name="wKn" Click="MvPiece" Grid.Row="7" Grid.Column="1" Background="White" BorderThickness="0">
                 <Image x:Name="wKnight" Width="38" Source="Images/whiteKnight.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wB" Click="mvPiece" Grid.Row="7" Grid.Column="2" Background="White" BorderThickness="0">
+            <Button x:Name="wB" Click="MvPiece" Grid.Row="7" Grid.Column="2" Background="White" BorderThickness="0">
                 <Image x:Name="wBishop" Width="38" Source="Images/whiteBishop.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wK" Click="mvPiece" Grid.Row="7" Grid.Column="3" Background="White" BorderThickness="0">
+            <Button x:Name="wK" Click="MvPiece" Grid.Row="7" Grid.Column="3" Background="White" BorderThickness="0">
                 <Image x:Name="wKing" Width="38" Source="Images/whiteKing.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wQ" Click="mvPiece" Grid.Row="7" Grid.Column="4" Background="White" BorderThickness="0">
+            <Button x:Name="wQ" Click="MvPiece" Grid.Row="7" Grid.Column="4" Background="White" BorderThickness="0">
                 <Image x:Name="wQueen" Width="38" Source="Images/whiteQueen.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wB2" Click="mvPiece" Grid.Row="7" Grid.Column="5" Background="White" BorderThickness="0">
+            <Button x:Name="wB2" Click="MvPiece" Grid.Row="7" Grid.Column="5" Background="White" BorderThickness="0">
                 <Image x:Name="wBishop2" Width="38" Source="Images/whiteBishop.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wKn2" Click="mvPiece" Grid.Row="7" Grid.Column="6" Background="White" BorderThickness="0">
+            <Button x:Name="wKn2" Click="MvPiece" Grid.Row="7" Grid.Column="6" Background="White" BorderThickness="0">
                 <Image x:Name="wKnight2" Width="38" Source="Images/whiteKnight.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wR2" Click="mvPiece" Grid.Row="7" Grid.Column="7" Background="White" BorderThickness="0">
+            <Button x:Name="wR2" Click="MvPiece" Grid.Row="7" Grid.Column="7" Background="White" BorderThickness="0">
                 <Image x:Name="wRook2" Width="38" Source="Images/whiteRook.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
+
         </Grid>
-        <Button Click="newGame" Content="New Game" HorizontalAlignment="Left" Height="25" Margin="416,179,0,0" VerticalAlignment="Top" Width="67"/>
+        <Button Click="NewGame" Content="New Game" HorizontalAlignment="Left" Height="25" Margin="416,179,0,0" VerticalAlignment="Top" Width="67"/>
         <TextBox x:Name="turnDisplay" HorizontalAlignment="Left" Height="26" Margin="389,10,0,0" TextWrapping="Wrap" Text="Turn: White" VerticalAlignment="Top" Width="94"/>
+        <Image x:Name="titleBG" Source="Images/cbg.jpg" Stretch="Fill" Grid.ColumnSpan="8" Grid.RowSpan="8"/>
+        <Button x:Name="titleButton" Click="Main" Content="START!" Height="25" Width="70"/>
     </Grid>
 </Window>
