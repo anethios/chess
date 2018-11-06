@@ -108,6 +108,12 @@
                 gameBoard(x, y) = pieceSet(x, y)
             Next
         Next
+
+        For x = 0 To 1
+            For y = 0 To 7
+                gameBoard(x, y).Button.IsEnabled = False
+            Next
+        Next
     End Sub
 
 
@@ -120,9 +126,27 @@
         If gameObject.turn = Turn.White Then
             turnDisplay.Text = "Turn: Black"
             gameObject.turn = Turn.Black
+            For x = 0 To 7
+                For y = 0 To 7
+                    If (gameBoard(x, y).Team = Turn.Black) Then
+                        gameBoard(x, y).Button.IsEnabled = True
+                    Else
+                        gameBoard(x, y).Button.IsEnabled = False
+                    End If
+                Next
+            Next
         ElseIf gameObject.turn = Turn.Black Then
             turnDisplay.Text = "Turn: White"
             gameObject.turn = Turn.White
+            For x = 0 To 7
+                For y = 0 To 7
+                    If (gameBoard(x, y).Team = Turn.White) Then
+                        gameBoard(x, y).Button.IsEnabled = True
+                    Else
+                        gameBoard(x, y).Button.IsEnabled = False
+                    End If
+                Next
+            Next
         End If
 
     End Sub
@@ -284,87 +308,46 @@
                 End If
             End While
         End If
-
-
-
-        If (gameObject.turn = Turn.Black And selected.Team = Turn.Black) Then
-
-            If (selected.Type = Type.Pawn) Then
-                If gameBoard(refRow + 1, refCol).Type = Type.Empty Then
+        '---------------------------------------PAWN---------------------------------------------
+        If (selected.Type = Type.Pawn) Then
+            If gameBoard(refRow + Signature, refCol).Type = Type.Empty Then
+                blankes(count).Visibility = Visibility.Visible
+                Grid.SetRow(blankes(count), refRow + Signature)
+                Grid.SetColumn(blankes(count), refCol)
+                count += 1
+            End If
+            If (selected.hasMoved = False) Then
+                If gameBoard(refRow + (2 * Signature), refCol).Type = Type.Empty Then
                     blankes(count).Visibility = Visibility.Visible
-                    Grid.SetRow(blankes(count), refRow + 1)
+                    Grid.SetRow(blankes(count), refRow + (2 * Signature))
                     Grid.SetColumn(blankes(count), refCol)
                     count += 1
                 End If
-                If (selected.hasMoved = False) Then
-                    If gameBoard(refRow + 2, refCol).Type = Type.Empty Then
+            End If
+            If (refRow + Signature <> 8 And refRow + Signature <> -1) Then
+                If (refCol + Signature <> 8 And refCol + Signature <> -1) Then
+                    If gameBoard(refRow + Signature, refCol + Signature).Type <> Type.Empty And gameBoard(refRow + Signature, refCol + Signature).Team <> selected.Team Then
+
                         blankes(count).Visibility = Visibility.Visible
-                        Grid.SetRow(blankes(count), refRow + 2)
-                        Grid.SetColumn(blankes(count), refCol)
+                        Grid.SetRow(blankes(count), refRow + Signature)
+                        Grid.SetColumn(blankes(count), refCol + Signature)
                         count += 1
                     End If
                 End If
-                If (refRow + 1 <> 8) Then
-                    If (refCol + 1 <> 8) Then
-                        If gameBoard(refRow + 1, refCol + 1).Type <> Type.Empty And gameBoard(refRow + 1, refCol + 1).Team = Turn.White Then
-
-                            blankes(count).Visibility = Visibility.Visible
-                            Grid.SetRow(blankes(count), refRow + 1)
-                            Grid.SetColumn(blankes(count), refCol + 1)
-                            count += 1
-                        End If
-                    End If
-                    If (refCol - 1 <> -1) Then
-                        If gameBoard(refRow + 1, refCol - 1).Type <> Type.Empty And gameBoard(refRow + 1, refCol - 1).Team = Turn.White Then
-                            blankes(count).Visibility = Visibility.Visible
-                            Grid.SetRow(blankes(count), refRow + 1)
-                            Grid.SetColumn(blankes(count), refCol - 1)
-                            count += 1
-                        End If
-                    End If
-                End If
-
-            End If
-        End If
-
-
-        If (gameObject.turn = Turn.White And selected.Team = Turn.White) Then
-            If (selected.Type = Type.Pawn) Then
-                If (gameBoard((refRow - 1), refCol).Type = Type.Empty) Then
-                    blankes(count).Visibility = Visibility.Visible
-                    Grid.SetRow(blankes(count), refRow - 1)
-                    Grid.SetColumn(blankes(count), refCol)
-                    count += 1
-                End If
-                If (selected.hasMoved = False) Then
-                    If gameBoard(refRow - 2, refCol).Type = Type.Empty Then
+                If (refCol - Signature <> -1 And refCol - Signature <> 8) Then
+                    If gameBoard(refRow + Signature, refCol - Signature).Type <> Type.Empty And gameBoard(refRow + Signature, refCol - Signature).Team <> selected.Team Then
                         blankes(count).Visibility = Visibility.Visible
-                        Grid.SetRow(blankes(count), refRow - 2)
-                        Grid.SetColumn(blankes(count), refCol)
+                        Grid.SetRow(blankes(count), refRow + Signature)
+                        Grid.SetColumn(blankes(count), refCol - Signature)
                         count += 1
                     End If
                 End If
-
-                If (refRow - 1 <> -1) Then
-                    If (refCol - 1 <> -1) Then
-                        If gameBoard(refRow - 1, refCol - 1).Type <> Type.Empty And gameBoard(refRow - 1, refCol - 1).Team = Turn.Black Then
-                            blankes(count).Visibility = Visibility.Visible
-                            Grid.SetRow(blankes(count), refRow - 1)
-                            Grid.SetColumn(blankes(count), refCol - 1)
-                            count += 1
-                        End If
-                    End If
-                    If (refCol + 1 <> 8) Then
-                        If gameBoard(refRow - 1, refCol + 1).Type <> Type.Empty And gameBoard(refRow - 1, refCol + 1).Team = Turn.Black Then
-                            blankes(count).Visibility = Visibility.Visible
-                            Grid.SetRow(blankes(count), refRow - 1)
-                            Grid.SetColumn(blankes(count), refCol + 1)
-                            count += 1
-                        End If
-                    End If
-                End If
             End If
+
         End If
+
+
+
 
     End Sub
 
