@@ -5,7 +5,6 @@
     Dim gameStarted As Integer = 0
     Dim selected As Piece
 
-
     Public Enum Turn
         White
         Black
@@ -183,12 +182,13 @@
         Dim blankes As Button() = getAvailableMoves()
 
         Dim Signature = 1
+        Dim Signature2 = 1
+        Dim Signature3 = 1
+        Dim Signature4 = 1
 
         Dim count = 0
-        Dim c1 = 1
-        Dim c2 = 1
-        Dim c3 = 1
-        Dim c4 = 1
+
+        Dim value = 1
         Dim refRow As Integer
         Dim refCol As Integer
 
@@ -217,79 +217,161 @@
         End If
         '--------------------------------------------QUEEN-----------------------------------------
         If (selected.Type = Type.Queen) Then
+            For x = 0 To 1
+                For y = 0 To 1
+                    While (refRow + (value * Signature * Signature2) < 8) And (refRow + (value * Signature * Signature2) > -1) And (refCol + (value * Signature * Signature3) < 8) And (refCol + (value * Signature * Signature3) > -1)
+                        If (gameBoard(refRow + (value * Signature * Signature2), refCol + (value * Signature * Signature3)).Type = Type.Empty Or gameBoard(refRow + (value * Signature * Signature2), refCol + (value * Signature * Signature3)).Team <> selected.Team) Then
+                            blankes(count).Visibility = Visibility.Visible
+                            Grid.SetRow(blankes(count), refRow + (value * Signature * Signature2))
+                            Grid.SetColumn(blankes(count), refCol + (value * Signature * Signature3))
+                            count += 1
+                            If gameBoard(refRow + (value * Signature * Signature2), refCol + (value * Signature * Signature3)).Type <> Type.Empty And gameBoard(refRow + (value * Signature * Signature2), refCol + (value * Signature * Signature3)).Team <> selected.Team Then
+                                Exit While
+                            End If
+                            value += 1
+                        Else
+                            Exit While
+                        End If
+                    End While
+                    value = 1
+                    If (Signature2 = 1) Then
+                        Signature2 = -1
+                    Else
+                        Signature2 = 1
+                    End If
+                Next
+                Signature3 = -1
+            Next
 
+            Signature4 = 0
+            For x = 0 To 1
+                For y = 0 To 1
+                    While ((refRow + (value * Signature * Signature2 * Signature3) < 8) And (refRow + (value * Signature * Signature2 * Signature3) > -1) And (refCol + (value * Signature * Signature2 * Signature4) < 8) And (refCol + (value * Signature * Signature2 * Signature4) > -1))
+                        If (gameBoard(refRow + (value * Signature * Signature2 * Signature3), refCol + (value * Signature * Signature2 * Signature4)).Type = Type.Empty Or gameBoard(refRow + (value * Signature * Signature2 * Signature3), refCol + (value * Signature * Signature2 * Signature4)).Team <> selected.Team) Then
+                            blankes(count).Visibility = Visibility.Visible
+                            Grid.SetRow(blankes(count), refRow + (value * Signature * Signature2 * Signature3))
+                            Grid.SetColumn(blankes(count), refCol + (value * Signature * Signature2 * Signature4))
+                            count += 1
+                            If gameBoard(refRow + (value * Signature * Signature2 * Signature3), refCol + (value * Signature * Signature2 * Signature4)).Type <> Type.Empty And gameBoard(refRow + (value * Signature * Signature2 * Signature3), refCol + (value * Signature * Signature2 * Signature4)).Team <> selected.Team Then
+                                Exit While
+                            End If
+                            value += 1
+                        Else
+                            Exit While
+                        End If
+                    End While
+                    value = 1
+                    If Signature2 = 1 Then
+                        Signature2 = -1
+                    Else
+                        Signature2 = 1
+                    End If
+                Next
+                value = 1
+                Signature4 = 1
+                Signature3 = 0
+            Next
         End If
         '--------------------------------------------BISHOP----------------------------------------
         If (selected.Type = Type.Bishop) Then
+            For x = 0 To 1
+                For y = 0 To 1
+                    While (refRow + (value * Signature * Signature2) < 8) And (refRow + (value * Signature * Signature2) > -1) And (refCol + (value * Signature * Signature3) < 8) And (refCol + (value * Signature * Signature3) > -1)
+                        If (gameBoard(refRow + (value * Signature * Signature2), refCol + (value * Signature * Signature3)).Type = Type.Empty Or gameBoard(refRow + (value * Signature * Signature2), refCol + (value * Signature * Signature3)).Team <> selected.Team) Then
+                            blankes(count).Visibility = Visibility.Visible
+                            Grid.SetRow(blankes(count), refRow + (value * Signature * Signature2))
+                            Grid.SetColumn(blankes(count), refCol + (value * Signature * Signature3))
+                            count += 1
+                            If gameBoard(refRow + (value * Signature * Signature2), refCol + (value * Signature * Signature3)).Type <> Type.Empty And gameBoard(refRow + (value * Signature * Signature2), refCol + (value * Signature * Signature3)).Team <> selected.Team Then
+                                Exit While
+                            End If
+                            value += 1
+                        Else
+                            Exit While
+                        End If
+                    End While
+                    value = 1
+                    If (Signature2 = 1) Then
+                        Signature2 = -1
+                    Else
+                        Signature2 = 1
+                    End If
+                Next
 
+                Signature3 = -1
+            Next
         End If
         '--------------------------------------------KNIGHT----------------------------------------
         If (selected.Type = Type.Knight) Then
+            For x = 0 To 1
+                For y = 0 To 1
+                    If ((refRow + (2 * value * Signature * Signature2) < 8) And (refRow + (2 * value * Signature * Signature2) > -1) And (refCol + (value * Signature * Signature3) < 8) And (refCol + (value * Signature * Signature3) > -1)) Then
+                        If (gameBoard(refRow + (2 * value * Signature * Signature2), refCol + (value * Signature * Signature3)).Type = Type.Empty Or gameBoard(refRow + (2 * value * Signature * Signature2), refCol + (value * Signature * Signature3)).Team <> selected.Team) Then
+                            blankes(count).Visibility = Visibility.Visible
+                            Grid.SetRow(blankes(count), refRow + (2 * value * Signature * Signature2))
+                            Grid.SetColumn(blankes(count), refCol + (value * Signature * Signature3))
+                            count += 1
+                        End If
+                    End If
+                    If (Signature3 = 1) Then
+                        Signature3 = -1
+                    Else
+                        Signature3 = 1
+                    End If
+                Next
+                Signature2 = -1
+            Next
 
+            For x = 0 To 1
+                For y = 0 To 1
+                    If ((refRow + (value * Signature * Signature2) < 8) And (refRow + (value * Signature * Signature2) > -1) And (refCol + (2 * value * Signature * Signature3) < 8) And (refCol + (2 * value * Signature * Signature3) > -1)) Then
+                        If (gameBoard(refRow + (value * Signature * Signature2), refCol + (2 * value * Signature * Signature3)).Type = Type.Empty Or gameBoard(refRow + (value * Signature * Signature2), refCol + (2 * value * Signature * Signature3)).Team <> selected.Team) Then
+                            blankes(count).Visibility = Visibility.Visible
+                            Grid.SetRow(blankes(count), refRow + (value * Signature * Signature2))
+                            Grid.SetColumn(blankes(count), refCol + (2 * value * Signature * Signature3))
+                            count += 1
+                        End If
+                    End If
+                    If (Signature2 = 1) Then
+                        Signature2 = -1
+                    Else
+                        Signature2 = 1
+                    End If
+                Next
+                Signature3 = -1
+            Next
         End If
+
         '---------------------------------------------ROOK-----------------------------------------
         If (selected.Type = Type.Rook) Then
-            '----------------White: Up - Black: Down------------------
-            While ((refRow + (c1 * Signature) <> 8) And (refRow + (c1 * Signature) <> -1))
-                If (gameBoard(refRow + (c1 * Signature), refCol).Type = Type.Empty Or gameBoard(refRow + (c1 * Signature), refCol).Team <> selected.Team) Then
-                    blankes(count).Visibility = Visibility.Visible
-                    Grid.SetRow(blankes(count), refRow + (c1 * Signature))
-                    Grid.SetColumn(blankes(count), refCol)
-                    count += 1
-                    If gameBoard(refRow + (c1 * Signature), refCol).Type <> Type.Empty And gameBoard(refRow + (c1 * Signature), refCol).Team <> selected.Team Then
-                        Exit While
+            Signature4 = 0
+            For x = 0 To 1
+                For y = 0 To 1
+                    While ((refRow + (value * Signature * Signature2 * Signature3) < 8) And (refRow + (value * Signature * Signature2 * Signature3) > -1) And (refCol + (value * Signature * Signature2 * Signature4) < 8) And (refCol + (value * Signature * Signature2 * Signature4) > -1))
+                        If (gameBoard(refRow + (value * Signature * Signature2 * Signature3), refCol + (value * Signature * Signature2 * Signature4)).Type = Type.Empty Or gameBoard(refRow + (value * Signature * Signature2 * Signature3), refCol + (value * Signature * Signature2 * Signature4)).Team <> selected.Team) Then
+                            blankes(count).Visibility = Visibility.Visible
+                            Grid.SetRow(blankes(count), refRow + (value * Signature * Signature2 * Signature3))
+                            Grid.SetColumn(blankes(count), refCol + (value * Signature * Signature2 * Signature4))
+                            count += 1
+                            If gameBoard(refRow + (value * Signature * Signature2 * Signature3), refCol + (value * Signature * Signature2 * Signature4)).Type <> Type.Empty And gameBoard(refRow + (value * Signature * Signature2 * Signature3), refCol + (value * Signature * Signature2 * Signature4)).Team <> selected.Team Then
+                                Exit While
+                            End If
+                            value += 1
+                        Else
+                            Exit While
+                        End If
+                    End While
+                    value = 1
+                    If Signature2 = 1 Then
+                        Signature2 = -1
+                    Else
+                        Signature2 = 1
                     End If
-                    c1 += 1
-                Else
-                    Exit While
-                End If
-            End While
-            '----------------White: Right - Black: Left------------------
-            While ((refCol + (c3 * Signature) <> 8) And (refCol + (c3 * Signature) <> -1))
-                If (gameBoard(refRow, (c3 * Signature) + refCol).Type = Type.Empty Or gameBoard(refRow, (c3 * Signature) + refCol).Team <> selected.Team) Then
-                    blankes(count).Visibility = Visibility.Visible
-                    Grid.SetRow(blankes(count), refRow)
-                    Grid.SetColumn(blankes(count), refCol + (c3 * Signature))
-                    count += 1
-
-                    If gameBoard(refRow, (c3 * Signature) + refCol).Type <> Type.Empty And gameBoard(refRow, (c3 * Signature) + refCol).Team <> selected.Team Then
-                        Exit While
-                    End If
-                    c3 += 1
-                Else
-                    Exit While
-                End If
-            End While
-            '----------------White: Down - Black: Up------------------
-            While ((refRow - (c2 * Signature) <> 8) And (refRow - (c2 * Signature) <> -1))
-                If (gameBoard(refRow - (c2 * Signature), refCol).Type = Type.Empty Or gameBoard(refRow - (c2 * Signature), refCol).Team <> selected.Team) Then
-                    blankes(count).Visibility = Visibility.Visible
-                    Grid.SetRow(blankes(count), refRow - (c2 * Signature))
-                    Grid.SetColumn(blankes(count), refCol)
-                    count += 1
-                    If gameBoard(refRow - (c2 * Signature), refCol).Type <> Type.Empty And gameBoard(refRow - (c2 * Signature), refCol).Team <> selected.Team Then
-                        Exit While
-                    End If
-                    c2 += 1
-                Else
-                    Exit While
-                End If
-            End While
-            '----------------White: Left - Black: Right------------------
-            While ((refCol - (c4 * Signature) <> 8) And (refCol - (c4 * Signature) <> -1))
-                If (gameBoard(refRow, refCol - (c4 * Signature)).Type = Type.Empty Or gameBoard(refRow, refCol - (c4 * Signature)).Team <> selected.Team) Then
-                    blankes(count).Visibility = Visibility.Visible
-                    Grid.SetRow(blankes(count), refRow)
-                    Grid.SetColumn(blankes(count), refCol - (c4 * Signature))
-                    count += 1
-                    If gameBoard(refRow, refCol - (c4 * Signature)).Type <> Type.Empty And gameBoard(refRow, refCol - (c4 * Signature)).Team <> selected.Team Then
-                        Exit While
-                    End If
-                    c4 += 1
-                Else
-                    Exit While
-                End If
-            End While
+                Next
+                value = 1
+                Signature4 = 1
+                Signature3 = 0
+            Next
         End If
         '---------------------------------------------PAWN-----------------------------------------
         If (selected.Type = Type.Pawn) Then
