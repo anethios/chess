@@ -5,9 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BrandNewChess"
         mc:Ignorable="d"
-        Title="MainWindow" Height="427" Width="503">
+        Title="MainWindow" Height="427" Width="525">
+    <Window.Resources>
+        <Style x:Key="ButtonFocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" SnapsToDevicePixels="true" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1" StrokeDashArray="1 2"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ButtonStyle1" TargetType="{x:Type Button}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="Overlay" CornerRadius="2">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Overlay" Property="Background" Value="transparent"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Overlay" Property="Background" Value="LightCyan"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid x:Name="Application" Margin="0,10,2,-83">
-        <Grid x:Name="chessGrid" ShowGridLines="True" Margin="28,10,109,95">
+        <Image Source="Images/board.jpg" Stretch="Fill" Margin="0,-10,82,82" RenderTransformOrigin="0.649,0.514"
+            />
+        <Grid x:Name="chessGrid" ShowGridLines="False" Margin="37,25,118,115" RenderTransformOrigin="0.927,0.486">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -30,53 +62,53 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Button x:Name="bR" Click="MvPiece" Grid.Row="0" Grid.Column="0" Background="White" BorderThickness="0">
+            <Button x:Name="bR" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="0" Grid.Column="0" BorderThickness="0">
                 <Image x:Name="bRook" Width="38" Source="Images/blackRook.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bKn" Click="MvPiece" Grid.Row="0" Grid.Column="1" Background="White" BorderThickness="0">
+            <Button x:Name="bKn" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="0" Grid.Column="1" BorderThickness="0">
                 <Image x:Name="bKnight" Width="38" Source="Images/blackKnight.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bB" Click="MvPiece" Grid.Row="0" Grid.Column="2" Background="White" BorderThickness="0">
+            <Button x:Name="bB"  Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="0" Grid.Column="2" BorderThickness="0">
                 <Image x:Name="bBishop" Width="38" Source="Images/blackBishop.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bQ" Click="MvPiece" Grid.Row="0" Grid.Column="3" Background="White" BorderThickness="0">
+            <Button x:Name="bQ"  Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="0" Grid.Column="3" BorderThickness="0">
                 <Image x:Name="bQueen" Width="38" Source="Images/blackQueen.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bK" Click="MvPiece" Grid.Row="0" Grid.Column="4" Background="White" BorderThickness="0">
+            <Button x:Name="bK" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="0" Grid.Column="4" BorderThickness="0">
                 <Image x:Name="bKing" Width="38" Source="Images/blackKing.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bB2" Click="MvPiece" Grid.Row="0" Grid.Column="5" Background="White" BorderThickness="0">
+            <Button x:Name="bB2" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="0" Grid.Column="5" BorderThickness="0">
                 <Image x:Name="bBishop2" Width="38" Source="Images/blackBishop.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bKn2" Click="MvPiece" Grid.Row="0" Grid.Column="6" Background="White" BorderThickness="0">
+            <Button x:Name="bKn2" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="0" Grid.Column="6" BorderThickness="0">
                 <Image x:Name="bKnight2" Width="38" Source="Images/blackKnight.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bR2" Click="MvPiece" Grid.Row="0" Grid.Column="7" Background="White" BorderThickness="0">
+            <Button x:Name="bR2" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="0" Grid.Column="7" BorderThickness="0">
                 <Image x:Name="bRook2" Width="38" Source="Images/blackRook.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
 
-            <Button x:Name="bp1B" Click="MvPiece" Grid.Row="1" Grid.Column="0" Background="White" BorderThickness="0">
+            <Button x:Name="bp1B" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="1" Grid.Column="0" BorderThickness="0">
                 <Image x:Name="bp1" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bp2B" Click="MvPiece" Grid.Row="1" Grid.Column="1" Background="White" BorderThickness="0">
+            <Button x:Name="bp2B" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="1" Grid.Column="1" BorderThickness="0">
                 <Image x:Name="bp2" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bp3B" Click="MvPiece" Grid.Row="1" Grid.Column="2" Background="White" BorderThickness="0">
+            <Button x:Name="bp3B" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="1" Grid.Column="2" BorderThickness="0">
                 <Image x:Name="bp3" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bp4B" Click="MvPiece" Grid.Row="1" Grid.Column="3" Background="White" BorderThickness="0">
+            <Button x:Name="bp4B" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="1" Grid.Column="3" BorderThickness="0">
                 <Image x:Name="bp4" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bp5B" Click="MvPiece" Grid.Row="1" Grid.Column="4" Background="White" BorderThickness="0">
+            <Button x:Name="bp5B" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="1" Grid.Column="4" BorderThickness="0">
                 <Image x:Name="bp5" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bp6B" Click="MvPiece" Grid.Row="1" Grid.Column="5" Background="White" BorderThickness="0">
+            <Button x:Name="bp6B" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="1" Grid.Column="5" BorderThickness="0">
                 <Image x:Name="bp6" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bp7B" Click="MvPiece" Grid.Row="1" Grid.Column="6" Background="White" BorderThickness="0">
+            <Button x:Name="bp7B" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="1" Grid.Column="6" BorderThickness="0">
                 <Image x:Name="bp7" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="bp8B" Click="MvPiece" Grid.Row="1" Grid.Column="7" Background="White" BorderThickness="0">
+            <Button x:Name="bp8B" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="1" Grid.Column="7" BorderThickness="0">
                 <Image x:Name="bp8" Width="38" Source="Images/blackPawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
 
@@ -164,60 +196,62 @@
             <Button x:Name="blank16" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
             <Button x:Name="blank17" Click="Move" Grid.Row="0" Grid.Column="0" Background="#7F99ccff" Visibility="Collapsed" BorderThickness="0"  Panel.ZIndex="2"/>
 
-            <Button x:Name="wp1B" Click="MvPiece" Grid.Row="6" Grid.Column="0" Background="White" BorderThickness="0" >
+            <Button x:Name="wp1B" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="6" Grid.Column="0" BorderThickness="0" >
                 <Image x:Name="wp1" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wp2B" Click="MvPiece" Grid.Row="6" Grid.Column="1" Background="White" BorderThickness="0">
+            <Button x:Name="wp2B" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="6" Grid.Column="1" BorderThickness="0">
                 <Image x:Name="wp2" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wp3B" Click="MvPiece" Grid.Row="6" Grid.Column="2" Background="White" BorderThickness="0">
+            <Button x:Name="wp3B" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="6" Grid.Column="2" BorderThickness="0">
                 <Image x:Name="wp3" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wp4B" Click="MvPiece" Grid.Row="6" Grid.Column="3" Background="White" BorderThickness="0">
+            <Button x:Name="wp4B" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="6" Grid.Column="3" BorderThickness="0">
                 <Image x:Name="wp4" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wp5B" Click="MvPiece" Grid.Row="6" Grid.Column="4" Background="White" BorderThickness="0">
+            <Button x:Name="wp5B" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="6" Grid.Column="4" BorderThickness="0">
                 <Image x:Name="wp5" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wp6B" Click="MvPiece" Grid.Row="6" Grid.Column="5" Background="White" BorderThickness="0">
+            <Button x:Name="wp6B" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="6" Grid.Column="5" BorderThickness="0">
                 <Image x:Name="wp6" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wp7B" Click="MvPiece" Grid.Row="6" Grid.Column="6" Background="White" BorderThickness="0">
+            <Button x:Name="wp7B" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="6" Grid.Column="6" BorderThickness="0">
                 <Image x:Name="wp7" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wp8B" Click="MvPiece" Grid.Row="6" Grid.Column="7" Background="White" BorderThickness="0">
+            <Button x:Name="wp8B" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="6" Grid.Column="7" BorderThickness="0">
                 <Image x:Name="wp8" Width="38" Source="Images/whitePawn.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
 
-            <Button x:Name="wR" Click="MvPiece" Grid.Row="7" Grid.Column="0" Background="White" BorderThickness="0">
+            <Button x:Name="wR" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="7" Grid.Column="0" BorderThickness="0">
                 <Image x:Name="wRook" Width="38" Source="Images/whiteRook.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wKn" Click="MvPiece" Grid.Row="7" Grid.Column="1" Background="White" BorderThickness="0">
+            <Button x:Name="wKn" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="7" Grid.Column="1" BorderThickness="0">
                 <Image x:Name="wKnight" Width="38" Source="Images/whiteKnight.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wB" Click="MvPiece" Grid.Row="7" Grid.Column="2" Background="White" BorderThickness="0">
+            <Button x:Name="wB" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="7" Grid.Column="2" BorderThickness="0">
                 <Image x:Name="wBishop" Width="38" Source="Images/whiteBishop.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wK" Click="MvPiece" Grid.Row="7" Grid.Column="3" Background="White" BorderThickness="0">
+            <Button x:Name="wK" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="7" Grid.Column="3" BorderThickness="0">
                 <Image x:Name="wKing" Width="38" Source="Images/whiteKing.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wQ" Click="MvPiece" Grid.Row="7" Grid.Column="4" Background="White" BorderThickness="0">
+            <Button x:Name="wQ" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="7" Grid.Column="4" BorderThickness="0">
                 <Image x:Name="wQueen" Width="38" Source="Images/whiteQueen.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wB2" Click="MvPiece" Grid.Row="7" Grid.Column="5" Background="White" BorderThickness="0">
+            <Button x:Name="wB2" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="7" Grid.Column="5" BorderThickness="0">
                 <Image x:Name="wBishop2" Width="38" Source="Images/whiteBishop.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wKn2" Click="MvPiece" Grid.Row="7" Grid.Column="6" Background="White" BorderThickness="0">
+            <Button x:Name="wKn2" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="7" Grid.Column="6" BorderThickness="0">
                 <Image x:Name="wKnight2" Width="38" Source="Images/whiteKnight.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
-            <Button x:Name="wR2" Click="MvPiece" Grid.Row="7" Grid.Column="7" Background="White" BorderThickness="0">
+            <Button x:Name="wR2" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="7" Grid.Column="7" BorderThickness="0">
                 <Image x:Name="wRook2" Width="38" Source="Images/whiteRook.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
 
         </Grid>
-        <Button Click="NewGame" Content="New Game" HorizontalAlignment="Left" Height="25" Margin="416,179,0,0" VerticalAlignment="Top" Width="67"/>
-        <TextBox x:Name="turnDisplay" HorizontalAlignment="Left" Height="26" Margin="389,10,0,0" TextWrapping="Wrap" Text="Turn: White" VerticalAlignment="Top" Width="94"/>
-        <Image x:Name="titleBG" Source="Images/cbg.jpg" Stretch="Fill" Grid.ColumnSpan="8" Grid.RowSpan="8"/>
-        <Button x:Name="titleButton" Click="Main" Content="START!" Height="25" Width="70"/>
+        <Button Click="NewGame" Content="New Game" HorizontalAlignment="Left" Height="25" Margin="438,178,0,0" VerticalAlignment="Top" Width="67"/>
+        <TextBox x:Name="turnDisplay" HorizontalAlignment="Left" Height="19" Margin="438,10,0,0" TextWrapping="Wrap" Text="Turn: White" VerticalAlignment="Top" Width="77"/>
+        <Image x:Name="titleBG" Source="Images/cbg.jpg" Stretch="Fill" Grid.ColumnSpan="8" Grid.RowSpan="8" Visibility="Collapsed"/>
+        <Button x:Name="titleButton" Click="Main" Content="START!" Height="25" Width="70" Visibility="Visible"/>
+        <CheckBox x:Name="whiteCheck" HorizontalAlignment="Left" Margin="438,60,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <CheckBox x:Name="blackCheck" HorizontalAlignment="Left" Margin="438,305,0,0" VerticalAlignment="Top" IsEnabled="False"/>
     </Grid>
 </Window>
