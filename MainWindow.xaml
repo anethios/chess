@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BrandNewChess"
         mc:Ignorable="d"
-        Title="MainWindow" Height="427" Width="525">
+        Title="Chess" Height="425.5" Width="525" MinWidth="525" MaxWidth="525" MinHeight="425.5" MaxHeight="425.5">
     <Window.Resources>
         <Style x:Key="ButtonFocusVisual">
             <Setter Property="Control.Template">
@@ -37,9 +37,9 @@
         </Style>
     </Window.Resources>
     <Grid x:Name="Application" Margin="0,10,2,-83">
-        <Image Source="Images/board.jpg" Stretch="Fill" Margin="0,-10,82,82" RenderTransformOrigin="0.649,0.514"
-            />
-        <Grid x:Name="chessGrid" ShowGridLines="False" Margin="37,25,118,115" RenderTransformOrigin="0.927,0.486">
+        <Image Source="Images/wood.jpg" Stretch="Fill" Margin="417,-13,0,78"/>
+        <Image Source="Images/playBoard.jpg" Stretch="Fill" Margin="0,-13,78,78" RenderTransformOrigin="0.649,0.514"/>
+        <Grid x:Name="chessGrid" ShowGridLines="False" Margin="40,24,118,115.3" RenderTransformOrigin="0.927,0.486">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -247,11 +247,13 @@
             </Button>
 
         </Grid>
-        <Button Click="NewGame" Content="New Game" HorizontalAlignment="Left" Height="25" Margin="438,178,0,0" VerticalAlignment="Top" Width="67"/>
-        <TextBox x:Name="turnDisplay" HorizontalAlignment="Left" Height="19" Margin="438,10,0,0" TextWrapping="Wrap" Text="Turn: White" VerticalAlignment="Top" Width="77"/>
-        <Image x:Name="titleBG" Source="Images/cbg.jpg" Stretch="Fill" Grid.ColumnSpan="8" Grid.RowSpan="8" Visibility="Collapsed"/>
-        <Button x:Name="titleButton" Click="Main" Content="START!" Height="25" Width="70" Visibility="Visible"/>
+        <Button Click="NewGame" Content="New Game" HorizontalAlignment="Left" Height="25" Margin="434,176,0,0" VerticalAlignment="Top" Width="67"/>
+        <TextBox x:Name="turnDisplay" TextAlignment="Center" Height="20" Margin="430,-10,0,0" TextWrapping="Wrap" Text="White" VerticalAlignment="Top"/>
         <CheckBox x:Name="whiteCheck" HorizontalAlignment="Left" Margin="438,60,0,0" VerticalAlignment="Top" IsEnabled="False"/>
         <CheckBox x:Name="blackCheck" HorizontalAlignment="Left" Margin="438,305,0,0" VerticalAlignment="Top" IsEnabled="False"/>
+        <Image x:Name="titleBG" Source="Images/knights.jpg" Stretch="Fill" Margin="0,-13,0,0"/>
+        <Button x:Name="titleButton" Click="Main" Content="PLAY!" Visibility="Visible" Margin="218,24,211,413"/>
+        <Image x:Name="gameOver" Source="Images/checkmate.jpg" Stretch="Fill" Margin="40,24,118,115" Visibility="Collapsed"/>
+
     </Grid>
 </Window>

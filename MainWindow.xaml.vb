@@ -1,12 +1,8 @@
 ﻿Class MainWindow
 
-    Dim turnSequence As Integer
     Dim turnDisp As TextBox = turnDisplay
-    Dim gameStarted As Integer = 0
     Dim selected As Piece
     Dim previous As Piece
-
-    Dim checkSignature = 0
 
     Dim Signature = 1
     Dim Signature2 = 1
@@ -58,9 +54,15 @@
         Return blankes
     End Function
 
+    '------------------------------------------------------------------------
+    '                            Game Initializer
+    '------------------------------------------------------------------------
+
     Public Sub Main()
         Application.Children.Remove(titleBG)
         Application.Children.Remove(titleButton)
+
+        My.Computer.Audio.Play(My.Resources.sword_draw, AudioPlayMode.Background)
 
         gameObject.checkBlack = False
         gameObject.checkBlack = False
@@ -126,12 +128,33 @@
         Next
     End Sub
 
+    Public Sub NewGame()
+        gameObject.turn = Turn.Black
+        UpdateGame()
+        For x = 0 To 7
+            For y = 0 To 7
+                gameBoard(x, y) = pieceSet(x, y)
+                If (pieceSet(x, y).Type <> Type.Empty) Then
+                    gameBoard(x, y).Button.Visibility = Visibility.Visible
+                    Grid.SetColumn(pieceSet(x, y).Button, y)
+                    Grid.SetRow(pieceSet(x, y).Button, x)
+                End If
+            Next
+        Next
+        gameObject.checkBlack = False
+        gameObject.checkWhite = False
+        gameOver.Visibility = Visibility.Collapsed
+    End Sub
+
+
     '------------------------------------------------------------------------
     '                           Game Functions
     '------------------------------------------------------------------------
+
+
     Public Sub UpdateGame()
         If gameObject.turn = Turn.White Then
-            turnDisplay.Text = "Turn: Black"
+            turnDisplay.Text = "Black"
             gameObject.turn = Turn.Black
             For x = 0 To 7
                 For y = 0 To 7
@@ -143,7 +166,7 @@
                 Next
             Next
         ElseIf gameObject.turn = Turn.Black Then
-            turnDisplay.Text = "Turn: White"
+            turnDisplay.Text = "White"
             gameObject.turn = Turn.White
             For x = 0 To 7
                 For y = 0 To 7
@@ -172,65 +195,17 @@
         End If
     End Sub
 
-    Public Sub check(identifier As Turn, isChecked As Boolean)
-        If identifier = Turn.White Then
-            If isChecked = True Then
-                gameObject.checkBlack = True
-            Else
-                gameObject.checkBlack = False
-            End If
-        Else
-            If isChecked = True Then
-                gameObject.checkWhite = True
-            Else
-                gameObject.checkWhite = False
-            End If
-        End If
-    End Sub
-
-    '---------- WIP -----------
-    Public Sub CheckSignatures(Signature As Integer, Signature2 As Integer)
-        If Signature2 = 1 Then
-            If Signature = 1 Then
-                check(Turn.Black, True)
-            Else
-                check(Turn.White, True)
-            End If
-        Else
-            If Signature = 1 Then
-                check(Turn.Black, False)
-            Else
-                check(Turn.White, False)
-            End If
-        End If
-    End Sub
-
-    Public Function GetButtonsW()
-        Dim wButtons As Button() = {wR, wKn, wB, wK, wQ, wB2, wKn2, wR2, wp1B, wp2B, wp3B, wp4B, wp5B, wp6B, wp7B, wp8B}
-        Return wButtons
-    End Function
-
-    Public Function GetButtonsB()
-        Dim bButtons As Button() = {bR, bKn, bB, bQ, bK, bB2, bKn2, bR2, bp1B, bp2B, bp3B, bp4B, bp5B, bp6B, bp7B, bp8B}
-        Return bButtons
-    End Function
-
-
     Public Sub CheckKing()
         Signature = 1
-        Signature2 = 1
-        Signature3 = 1
-        Signature4 = 1
-
         Dim l, z
         Dim king As Piece
 
         Dim refRow = 0
         Dim refCol = 0
 
-
-
         For l = 0 To 1
+            Signature2 = 1
+            Signature3 = 1
             z = 0
             For x = 0 To 7
                 For y = 0 To 7
@@ -257,6 +232,10 @@
                             count += 1
                             If gameBoard(refRow + (value * Signature * Signature2), refCol + (value * Signature * Signature3)).Type <> Type.Empty And gameBoard(refRow + (value * Signature * Signature2), refCol + (value * Signature * Signature3)).Team <> king.Team Then
                                 If gameBoard(refRow + (value * Signature * Signature2), refCol + (value * Signature * Signature3)).Type = Type.Bishop Or gameBoard(refRow + (value * Signature * Signature2), refCol + (value * Signature * Signature3)).Type = Type.Queen Then
+
+                                    Debug.Write("huh ")
+                                    Debug.Write(refRow + (value * Signature * Signature2))
+                                    Debug.Write(refCol + (value * Signature * Signature3))
                                     z = 1
                                 End If
                                 If value = 1 And gameBoard(refRow + (value * Signature * Signature2), refCol + (value * Signature * Signature3)).Type = Type.Pawn Then
@@ -287,6 +266,7 @@
 
                             If gameBoard(refRow + (value * Signature * Signature2 * Signature3), refCol + (value * Signature * Signature2 * Signature4)).Type <> Type.Empty And gameBoard(refRow + (value * Signature * Signature2 * Signature3), refCol + (value * Signature * Signature2 * Signature4)).Team <> king.Team Then
                                 If gameBoard(refRow + (value * Signature * Signature2 * Signature3), refCol + (value * Signature * Signature2 * Signature4)).Type = Type.Rook Or gameBoard(refRow + (value * Signature * Signature2 * Signature3), refCol + (value * Signature * Signature2 * Signature4)).Type = Type.Queen Then
+
                                     z = 1
                                 End If
                                 Exit While
@@ -316,39 +296,68 @@
 
             Signature = -1
         Next
-
     End Sub
 
-    '------------------------------------------------------------------------
-    '                            Game Initializer
-    '------------------------------------------------------------------------
-
-    Public Sub NewGame()
-        gameObject.turn = Turn.White
-
-        For x = 0 To 7
-            For y = 0 To 7
-                gameBoard(x, y) = pieceSet(x, y)
-                gameBoard(x, y).Button.Visibility = True
-                If (pieceSet(x, y).Type <> Type.Empty) Then
-                    Grid.SetColumn(pieceSet(x, y).Button, y)
-                    Grid.SetRow(pieceSet(x, y).Button, x)
-                End If
-            Next
-        Next
+    Public Sub CheckSignatures(Signature As Integer, Signature2 As Integer)
+        If Signature2 = 1 Then
+            If Signature = 1 Then
+                check(Turn.Black, True)
+            Else
+                check(Turn.White, True)
+            End If
+        Else
+            If Signature = 1 Then
+                check(Turn.Black, False)
+            Else
+                check(Turn.White, False)
+            End If
+        End If
     End Sub
 
+    Public Sub check(identifier As Turn, isChecked As Boolean)
+        If identifier = Turn.White Then
+            If isChecked = True Then
+                gameObject.checkBlack = True
+                My.Computer.Audio.Play(My.Resources.ohno, AudioPlayMode.Background)
+            Else
+                gameObject.checkBlack = False
+            End If
+        Else
+            If isChecked = True Then
+                gameObject.checkWhite = True
+                My.Computer.Audio.Play(My.Resources.huh, AudioPlayMode.Background)
+            Else
+                gameObject.checkWhite = False
+            End If
+        End If
+    End Sub
+
+    Public Sub playsound(type As String)
+        If gameObject.turn = Turn.Black Then
+            If type = "hit" Then
+                My.Computer.Audio.Play(My.Resources.hit2, AudioPlayMode.Background)
+            Else
+                My.Computer.Audio.Play(My.Resources._240788__f4ngy__knife_hitting_wood, AudioPlayMode.Background)
+            End If
+
+        Else
+            If type = "hit" Then
+                My.Computer.Audio.Play(My.Resources.hit, AudioPlayMode.Background)
+            Else
+                My.Computer.Audio.Play(My.Resources.clack, AudioPlayMode.Background)
+            End If
+        End If
+    End Sub
     '------------------------------------------------------------------------
     '                              Piece Logic
     '------------------------------------------------------------------------
 
     Public Sub MvPiece(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs)
-        Dim wPieces = GetButtonsW()
-        Dim bPieces = GetButtonsB()
 
         Dim blankes As Button() = getAvailableMoves()
 
-        checkSignature = 0
+        Dim nextRow, nextCol
+
         Signature = 1
         Signature2 = 1
         Signature3 = 1
@@ -559,23 +568,30 @@
         '---------------------------------------------ROOK-----------------------------------------
         If (selected.Type = Type.Rook) Then
             Signature4 = 0
+            count = 0
+
             For x = 0 To 1
+                nextRow = refRow + (value * Signature * Signature2 * Signature3)
+                nextCol = refCol + (value * Signature * Signature2 * Signature4)
                 For y = 0 To 1
-                    While ((refRow + (value * Signature * Signature2 * Signature3) < 8) And (refRow + (value * Signature * Signature2 * Signature3) > -1) And (refCol + (value * Signature * Signature2 * Signature4) < 8) And (refCol + (value * Signature * Signature2 * Signature4) > -1))
-                        If (gameBoard(refRow + (value * Signature * Signature2 * Signature3), refCol + (value * Signature * Signature2 * Signature4)).Type = Type.Empty Or gameBoard(refRow + (value * Signature * Signature2 * Signature3), refCol + (value * Signature * Signature2 * Signature4)).Team <> selected.Team) Then
-
+                    nextRow = refRow + (value * Signature * Signature2 * Signature3)
+                    nextCol = refCol + (value * Signature * Signature2 * Signature4)
+                    While ((nextRow < 8) And (nextRow > -1) And (nextCol < 8) And (nextCol > -1))
+                        If (gameBoard(nextRow, nextCol).Type = Type.Empty Or gameBoard(nextRow, nextCol).Team <> selected.Team) Then
+                            Debug.Write("WTF")
                             blankes(count).Visibility = Visibility.Visible
-                            Grid.SetRow(blankes(count), refRow + (value * Signature * Signature2 * Signature3))
-                            Grid.SetColumn(blankes(count), refCol + (value * Signature * Signature2 * Signature4))
+                            Grid.SetRow(blankes(count), nextRow)
+                            Grid.SetColumn(blankes(count), nextCol)
                             count += 1
-
-                            If gameBoard(refRow + (value * Signature * Signature2 * Signature3), refCol + (value * Signature * Signature2 * Signature4)).Type <> Type.Empty And gameBoard(refRow + (value * Signature * Signature2 * Signature3), refCol + (value * Signature * Signature2 * Signature4)).Team <> selected.Team Then
-                                Exit While
-                            End If
                             value += 1
                         Else
                             Exit While
                         End If
+                        If gameBoard(nextRow, nextCol).Type <> Type.Empty And gameBoard(nextRow, nextCol).Team <> selected.Team Then
+                            Exit While
+                        End If
+                        nextRow = refRow + (value * Signature * Signature2 * Signature3)
+                        nextCol = refCol + (value * Signature * Signature2 * Signature4)
                     End While
                     value = 1
                     If Signature2 = 1 Then
@@ -627,8 +643,6 @@
     End Sub
 
     Public Sub Move(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs)
-
-        checkSignature = 0
         Dim blankes As Button() = getAvailableMoves()
         For x = 0 To blankes.Length - 1
             blankes(x).Visibility = Visibility.Hidden
@@ -641,22 +655,21 @@
         Grid.SetRow(selected.Button, row)
         Grid.SetColumn(selected.Button, col)
         If gameBoard(row, col).Type <> Type.Empty Then
-            If (gameBoard(row, col).Team = Turn.Black) Then
-                gameObject.pointsWhite += 1
-            Else
-                gameObject.pointsBlack += 1
+            playsound("hit")
+
+            If (gameBoard(row, col).Type = Type.King) Then
+                My.Computer.Audio.Play(My.Resources.gameOver, AudioPlayMode.WaitToComplete)
+                gameOver.Visibility = Visibility.Visible
             End If
 
             gameBoard(row, col).Type = Type.Empty
             gameBoard(row, col).Button.Visibility = Visibility.Hidden
+        Else
+            playsound("move")
         End If
 
         For x = 0 To 7
             For y = 0 To 7
-                If (gameBoard(x, y).Type = Type.Empty) And (gameBoard(x, y).Button.IsVisible = True) Then
-                    Debug.Write("test")
-                    gameBoard(x, y).Button.Visibility = Visibility.Collapsed
-                End If
                 If selected.Button Is gameBoard(x, y).Button Then
                     temp = gameBoard(x, y)
                     gameBoard(x, y) = gameBoard(row, col)

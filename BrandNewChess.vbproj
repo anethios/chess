@@ -55,7 +55,7 @@
     <OptionExplicit>On</OptionExplicit>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionCompare>Binary</OptionCompare>
+    <OptionCompare>Text</OptionCompare>
   </PropertyGroup>
   <PropertyGroup>
     <OptionStrict>Off</OptionStrict>
@@ -74,6 +74,9 @@
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System.Core" />
@@ -151,6 +154,7 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
     </EmbeddedResource>
     <None Include="BrandNewChess_TemporaryKey.pfx" />
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.vb</LastGenOutput>
@@ -217,7 +221,29 @@
     <Resource Include="Images\cbg.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\board.jpg" />
+    <Resource Include="Images\playBoard.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\wood.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\knights.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\checkmate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hit2.wav" />
+    <None Include="Resources\hit.wav" />
+    <None Include="Resources\sword_draw.wav" />
+    <None Include="Resources\ohno.wav" />
+    <None Include="Resources\huh.wav" />
+    <None Include="Resources\gameOver.wav" />
+    <None Include="Resources\clack.wav" />
+    <None Include="Resources\240788__f4ngy__knife-hitting-wood.wav" />
+    <None Include="Resources\click2.wav" />
+    <None Include="Resources\161595__jorickhoofd__wooden-hit-short-soft.aiff" />
+    <None Include="Resources\click.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>
