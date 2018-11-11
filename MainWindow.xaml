@@ -62,6 +62,16 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
+            <Button x:Name="x0" Visibility="Collapsed"/>
+            <Button x:Name="x1" Visibility="Collapsed"/>
+            <Button x:Name="x2" Visibility="Collapsed"/>
+            <Button x:Name="x3" Visibility="Collapsed"/>
+            <Button x:Name="x4" Visibility="Collapsed"/>
+            <Button x:Name="x5" Visibility="Collapsed"/>
+            <Button x:Name="x6" Visibility="Collapsed"/>
+            <Button x:Name="x7" Visibility="Collapsed"/>
+            
+
             <Button x:Name="bR" Style="{StaticResource ButtonStyle1}" Click="MvPiece" Grid.Row="0" Grid.Column="0" BorderThickness="0">
                 <Image x:Name="bRook" Width="38" Source="Images/blackRook.png" IsManipulationEnabled="True" Stretch="Fill"/>
             </Button>
