@@ -252,7 +252,7 @@
 
     Public Sub CheckKing()
         Signature = 1
-        Dim l, z, counter
+        Dim l, z
         Dim king As Piece = Nothing
 
         Dim refRow = 0
@@ -481,22 +481,16 @@
     '                              Piece Logic
     '------------------------------------------------------------------------
 
+    '---------Select Function----------
     Public Sub MvPiece(ByVal sender As System.Object, ByVal e As System.Windows.RoutedEventArgs)
-
         Dim blankes As Button() = getAvailableMoves()
-
-        Dim nextRow, nextCol
-
+        Dim nextRow, nextCol, refRow, refCol
         Signature = 1
         Signature2 = 1
         Signature3 = 1
         Signature4 = 1
-
         count = 0
         value = 1
-
-        Dim refRow As Integer
-        Dim refCol As Integer
 
         For x = 0 To blankes.Length - 1
             If blankes(x) IsNot Nothing Then
@@ -504,6 +498,7 @@
             End If
         Next
 
+        'Iterate Through Piece Array To Find Matching Button From Sender
         For x = 0 To 7
             For y = 0 To 7
                 If ReferenceEquals(sender, gameBoard(x, y).Button) Then
@@ -701,15 +696,22 @@
             Signature4 = 0
             count = 0
 
+            'Signature 1 Identifies Team
+            'Signature 2 Identifies Polarity Of Row/Column Traversal
+            'Signature 3 Identifies If Row/Column Should Change
+
             For x = 0 To 1
+                'Switch From Row to Column
                 nextRow = refRow + (value * Signature * Signature2 * Signature3)
                 nextCol = refCol + (value * Signature * Signature2 * Signature4)
                 For y = 0 To 1
+                    'Change Polarity
                     nextRow = refRow + (value * Signature * Signature2 * Signature3)
                     nextCol = refCol + (value * Signature * Signature2 * Signature4)
+                    'Loop Until The Next Row Or Column Hits An Array Boundary
                     While ((nextRow < 8) And (nextRow > -1) And (nextCol < 8) And (nextCol > -1))
                         If (gameBoard(nextRow, nextCol).Type = Type.Empty Or gameBoard(nextRow, nextCol).Team <> selected.Team) Then
-
+                            'Set Movement Spaces
                             blankes(count).Visibility = Visibility.Visible
                             Grid.SetRow(blankes(count), nextRow)
                             Grid.SetColumn(blankes(count), nextCol)
@@ -725,9 +727,11 @@
                         Else
                             Exit While
                         End If
+                        'If The Next Row/Column Is An Enemy Piece, End The Current Loop
                         If gameBoard(nextRow, nextCol).Type <> Type.Empty And gameBoard(nextRow, nextCol).Team <> selected.Team Then
                             Exit While
                         End If
+                        'Increment Row Or Column
                         nextRow = refRow + (value * Signature * Signature2 * Signature3)
                         nextCol = refCol + (value * Signature * Signature2 * Signature4)
                     End While
@@ -795,24 +799,24 @@
         Grid.SetColumn(selected.Button, col)
         If gameBoard(row, col).Type <> Type.Empty Then
             playsound("hit")
-
+            'If King Is Captured, End Game
             If (gameBoard(row, col).Type = Type.King) Then
                 My.Computer.Audio.Play(My.Resources.gameOver, AudioPlayMode.WaitToComplete)
                 gameOver.Visibility = Visibility.Visible
+                Exit Sub
             End If
-
             gameBoard(row, col).Type = Type.Empty
             gameBoard(row, col).Button.Visibility = Visibility.Hidden
         Else
             playsound("move")
         End If
 
+        'Exchange Spots Between The Selected Piece And Chosen Destination
         For x = 0 To 7
             For y = 0 To 7
                 If selected.Button Is gameBoard(x, y).Button Then
                     temp = gameBoard(x, y)
                     gameBoard(x, y) = gameBoard(row, col)
-
                     gameBoard(row, col) = temp
                     gameBoard(row, col).hasMoved = True
                 End If
